@@ -13,7 +13,7 @@ export const Home: React.FC = () => {
         </Text>
         <View>
           {templateItems?.map(item => (
-            <HomeItem>{item}</HomeItem>
+            <HomeItem key={item}>{item}</HomeItem>
           ))}
         </View>
       </View>

@@ -1,5 +1,10 @@
 package com.fincon;
 
+// required to avoid crashes related to View state 
+// being not persisted consistently across 
+// Activity restarts.
+import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
@@ -14,6 +19,14 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "fincon";
+  }
+
+  /**
+   * Required to make the dependency react-native-screens (dependency of react-navigation) work properly
+   */
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
   }
 
   /**
